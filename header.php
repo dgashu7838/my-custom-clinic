@@ -5,17 +5,6 @@
   <meta charset=<?php bloginfo('charset'); ?>>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <?php wp_head(); ?>
-  <title>Index - Clinic Bootstrap Template</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
-
-  <!-- Favicons -->
-  <link href="http://localhost/clinic/wp-content/themes/my-custom-clinic /assets/img/favicon.png" rel="icon">
-  <link href="http://localhost/clinic/wp-content/themes/my-custom-clinic /assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
 
 </head>
 
@@ -42,11 +31,19 @@
     <div class="branding d-flex align-items-cente">
 
       <div class="container position-relative d-flex align-items-center justify-content-between">
-        <a href="index.html" class="logo d-flex align-items-center">
+        <!-- <a href="index.html" class="logo d-flex align-items-center"> -->
           <!-- Uncomment the line below if you also wish to use an image logo -->
           <!-- <img src="http://localhost/clinic/wp-content/themes/my-custom-clinic /assets/img/logo.webp" alt=""> -->
+          <!-- <h1 class="sitename">Clinic</h1>
+        </a> -->
+        <div class="logo d-flex align-items-center">
+          <?php
+            if(has_custom_logo()){
+              the_custom_logo();
+            };
+          ?>
           <h1 class="sitename">Clinic</h1>
-        </a>
+        </div>
 
         <nav id="navmenu" class="navmenu">
           <ul>
