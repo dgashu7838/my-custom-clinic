@@ -41,8 +41,11 @@
             if(has_custom_logo()){
               the_custom_logo();
             };
+            if(get_theme_mod("show_site_title",true)){
           ?>
-          <h1 class="sitename">Clinic</h1>
+          <h1 class="sitename"><?php bloginfo("name"); ?></h1>
+
+          <?php } ?>
         </div>
 
         <nav id="navmenu" class="navmenu">

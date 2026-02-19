@@ -15,6 +15,8 @@ function clinicAssets() {
     wp_enqueue_style("swiper-min",get_template_directory_uri()."/assets/vendor/swiper/swiper-bundle.min.css",[],"1.0");
     wp_enqueue_style("main",get_template_directory_uri()."/assets/css/main.css",[],"1.0");
 
+    wp_enqueue_style("mainCss",get_stylesheet_uri(),[],1.0);
+
 
     // js include
     wp_enqueue_script("bootstrapjs-min", get_template_directory_uri()."/assets/vendor/bootstrap/js/bootstrap.bundle.min.js",[],"1.0",true);
@@ -24,6 +26,8 @@ function clinicAssets() {
     wp_enqueue_script("purecounter", get_template_directory_uri()."/assets/vendor/purecounter/purecounter_vanilla.js",[],"1.0",true);
     wp_enqueue_script("swiper-bundel", get_template_directory_uri()."/assets/vendor/swiper/swiper-bundle.min.js",[],"1.0",true);
     wp_enqueue_script("main", get_template_directory_uri()."/assets/js/main.js",[],"1.0",true);
+
+
 }
 
 add_action("wp_enqueue_scripts","clinicAssets");
@@ -83,8 +87,38 @@ function myThemeCustomizeRegister($wp_customize){
             "step"=>10
         ],
     ]);
+
+    // logo show/hide option
+
+    $wp_customize->add_setting("show_site_title",[
+            "default"=>true,
+            "sanitize_callback"=>"wp_validate_boolean",
+    ]);
+
+    $wp_customize->add_control("show_site_title",[
+        "label" => __("Display Site Title","myTheme"),
+        "section"=>"title_tagline",
+        "type"=>"checkbox",
+    ]);
 }
 add_action("customize_register","myThemeCustomizeRegister");
+
+
+function myThemeCustomLogoCss(){
+    $logoWidth = absint(get_theme_mod("logo_width",100) );
+
+    $css = "
+        .custom-logo {
+            width: {$logoWidth}px;
+            height:auto;
+        }
+    ";
+
+    wp_add_inline_style("mainCss",$css);
+}
+
+add_action("wp_enqueue_scripts","myThemeCustomLogoCss");
+
 
 
 
