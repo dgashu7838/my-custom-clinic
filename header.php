@@ -49,7 +49,7 @@
         </div>
 
         <nav id="navmenu" class="navmenu">
-          <ul>
+          <!-- <ul>
             <li><a href="index.html" class="active">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="departments.html">Departments</a></li>
@@ -86,7 +86,20 @@
               </ul>
             </li>
             <li><a href="contact.html">Contact</a></li>
-          </ul>
+          </ul> -->
+
+          <?php
+              if(has_nav_menu("primary")){
+                wp_nav_menu([
+                  "theme_location"=>"primary",
+                  "container"=>false,
+                  "menu_class"=>"",
+                  "walker"=>new MyTheme_Nav_Walker(),
+                  "fallback_cb"=>false,
+                ]);
+              }
+          
+          ?>
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
 
