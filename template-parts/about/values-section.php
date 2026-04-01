@@ -1,0 +1,54 @@
+<?php 
+if(!defined("ABSPATH")) exit;
+?>
+<div class="values-section" data-aos="fade-up" data-aos-delay="300">
+    <div class="row">
+    <div class="col-lg-12 text-center">
+        <h3>Our Core Values</h3>
+        <p class="section-description">These principles guide everything we do in our commitment to exceptional
+        healthcare</p>
+    </div>
+    </div>
+
+    <div class="row">
+    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="value-item">
+        <div class="value-icon">
+            <i class="bi bi-heart-pulse"></i>
+        </div>
+        <h4>Compassion</h4>
+        <p>Providing care with empathy and understanding for every patient's unique needs and circumstances.</p>
+        </div>
+    </div>
+
+    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="value-item">
+        <div class="value-icon">
+            <i class="bi bi-shield-check"></i>
+        </div>
+        <h4>Excellence</h4>
+        <p>Maintaining the highest standards of medical care through continuous learning and innovation.</p>
+        </div>
+    </div>
+
+    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+        <div class="value-item">
+        <div class="value-icon">
+            <i class="bi bi-people"></i>
+        </div>
+        <h4>Integrity</h4>
+        <p>Building trust through honest communication and ethical practices in all our interactions.</p>
+        </div>
+    </div>
+
+    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+        <div class="value-item">
+        <div class="value-icon">
+            <i class="bi bi-lightbulb"></i>
+        </div>
+        <h4>Innovation</h4>
+        <p>Embracing cutting-edge technology and treatments to improve patient outcomes.</p>
+        </div>
+    </div>
+    </div><!-- End Values Row -->
+</div>

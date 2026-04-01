@@ -23,5 +23,9 @@ function myThemeSetup(){
     register_nav_menus([
         "primary"=>__("Primary Menu","mytheme"),
     ]);
+
+    // excerpt enable on page
+
+    add_post_type_support( "page", "excerpt" );
 }
 add_action("after_setup_theme","myThemeSetup");
