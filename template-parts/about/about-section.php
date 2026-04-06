@@ -7,21 +7,36 @@ if(!defined("ABSPATH")) exit;
        <?php echo wp_kses_post(get_the_content()); ?>
 
         <div class="stats-grid">
-        <div class="stat-item">
-            <span class="stat-number" data-purecounter-start="0" data-purecounter-end="15000"
-            data-purecounter-duration="2">15000</span>
-            <span class="stat-label">Patients Treated</span>
-        </div>
-        <div class="stat-item">
-            <span class="stat-number" data-purecounter-start="0" data-purecounter-end="25"
-            data-purecounter-duration="2">25</span>
-            <span class="stat-label">Years Experience</span>
-        </div>
-        <div class="stat-item">
-            <span class="stat-number" data-purecounter-start="0" data-purecounter-end="50"
-            data-purecounter-duration="2">50</span>
-            <span class="stat-label">Medical Specialists</span>
-        </div>
+            <?php
+                $stats = [
+                    "patients_treated" =>[15000,"Patients Treated"],
+                    "years_experince" =>[25,"Years Experinced"],
+                    "medical_specialists" =>[50,"Medical Specialists"],
+                ];
+
+                foreach($stats as $key=>$data){
+                    $value = get_theme_mod("topbar_{$key}_value",$data[0]);
+
+                    // Enusure numeric
+                    $value = is_numeric($value) ? $value : $data[0];
+
+                    $label_name = get_theme_mod("topbar_{$key}",$data[1]); 
+                    
+                    if(empty($value) || empty($label_name)){
+                        continue;
+                    }
+                    
+                    ?>
+
+                    <div class="stat-item">
+                        <span class="stat-number" data-purecounter-start="0" data-purecounter-end="<?php echo esc_attr($value); ?>"
+                        data-purecounter-duration="2"><?php echo esc_html($value); ?></span>
+                        <span class="stat-label"><?php echo esc_html($label_name); ?></span>
+                    </div>
+               <?php  }
+
+            ?>
+
         </div><!-- End Stats Grid -->
     </div><!-- End About Content -->
     </div>

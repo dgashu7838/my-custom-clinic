@@ -9,6 +9,8 @@ $files = [
     "logoStyle",
     "menu",
     "topNav",
+    "global",
+    "stats",
 ];
 
 foreach($files as $file){
